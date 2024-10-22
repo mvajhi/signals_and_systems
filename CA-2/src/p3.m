@@ -32,9 +32,9 @@ imshow(picture)
 % CROPING the image 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % hazf 1/3 balaie image
-[height , width , ~ ] = size(picture);
-down_third = picture (height/3+1 : end , : , : );
-picture = down_third;
+% [height , width , ~ ] = size(picture);
+% down_third = picture (height/3+1 : end , : , : );
+% picture = down_third;
 
 % %hazf 1/5 paeeni image
 % [height , width , ~ ] = size(picture);
@@ -43,16 +43,16 @@ picture = down_third;
 % picture = top_fifth;
 
 % hazf 1/5 kenar chap image
-[height , width , ~ ] = size(picture);
-left_fifth = picture (: , floor(1*width/5)+1:end , :);
-picture = left_fifth;
+% [height , width , ~ ] = size(picture);
+% left_fifth = picture (: , floor(1*width/5)+1:end , :);
+% picture = left_fifth;
 
 
 % hazf 1/5 kenar rast image
-[height , width , ~ ] = size(picture);
-% 21 /25pic = 1pic  - 1/5pic * 4/5pic
-right_fifth = picture (: , 1:floor(21*width/25)+1 , :);
-picture = right_fifth;
+% [height , width , ~ ] = size(picture);
+% % 21 /25pic = 1pic  - 1/5pic * 4/5pic
+% right_fifth = picture (: , 1:floor(21*width/25)+1 , :);
+% picture = right_fifth;
 
 
 figure 
@@ -81,10 +81,12 @@ imshow(picture2)
 % picture2 = ~picture2;
 % imshow(picture2);
 
+[L,Nseg]=bwlabel(picture2);
+[r,c]=find(L==1);
+    Y=picture2(min(r):max(r),min(c):max(c));
 
 
-
-
+plot(Y)
 % Labeling connected components
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure
