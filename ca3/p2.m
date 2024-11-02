@@ -1,7 +1,7 @@
 clear all;
 
-X = imread("IC.png");
-Y = imread("PCB.jpg");
+X = imread("./data/IC.png");
+Y = imread("./data/PCB.jpg");
 
 % Display images
 figure; imshow(X); title('Image X');
